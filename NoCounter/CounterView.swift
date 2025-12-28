@@ -29,6 +29,7 @@ struct CounterView: View {
             Button {
                 modelContext.insert(NoEvent())
                 NoStore.increment()
+                PhoneWC.shared.syncAfterLocalChange()
                 UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             } label: {
                 HStack(spacing: 10) {
@@ -75,6 +76,7 @@ struct CounterView: View {
         guard let last = events.first else { return }
         modelContext.delete(last)
         NoStore.decrement()
+        PhoneWC.shared.syncAfterLocalChange()
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 }

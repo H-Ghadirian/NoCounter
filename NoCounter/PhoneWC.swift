@@ -29,6 +29,13 @@ final class PhoneWC: NSObject, WCSessionDelegate {
         try? WCSession.default.updateApplicationContext([WCKeys.allTimeCount: total])
     }
 
+    func syncAfterLocalChange() {
+        DispatchQueue.main.async {
+            let total = self.totalCount()
+            self.syncWidgetCount(total)
+        }
+    }
+
     func session(_ session: WCSession,
                  didReceiveMessage message: [String : Any],
                  replyHandler: @escaping ([String : Any]) -> Void) {
