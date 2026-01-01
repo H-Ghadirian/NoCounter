@@ -1,7 +1,6 @@
 import Foundation
 
 struct NoStore {
-
     private static let suite = UserDefaults(
         suiteName: "group.me.HamedGh.NoCounter"
     )!

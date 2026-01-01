@@ -33,7 +33,7 @@ struct NoAccessoryView: View {
             ZStack {
                 AccessoryWidgetBackground()
                 VStack(spacing: 1) {
-                    Text("Hi \(count)")
+                    Text("\(count)")
                         .font(.system(.title2, design: .rounded).weight(.semibold))
                     Text("NO")
                         .font(.caption2.weight(.semibold))

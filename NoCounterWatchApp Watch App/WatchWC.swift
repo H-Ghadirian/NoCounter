@@ -54,6 +54,5 @@ final class WatchWC: NSObject, WCSessionDelegate {
         }
     }
 
-    // required
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 }
