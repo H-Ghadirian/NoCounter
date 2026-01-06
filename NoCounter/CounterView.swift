@@ -34,7 +34,10 @@ struct CounterView: View {
                 HStack(spacing: 10) {
                     Image(systemName: "hand.raised.fill")
                         .font(.system(size: 20, weight: .bold))
+                        .foregroundStyle(.white)
+
                     Text("NO")
+                        .foregroundStyle(.white)
                         .font(.system(size: 20, weight: .bold))
                 }
                 .frame(maxWidth: .infinity, minHeight: 60)
