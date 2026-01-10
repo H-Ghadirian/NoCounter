@@ -59,3 +59,17 @@ struct BarCard: View {
         }
     }
 }
+
+#Preview {
+    let now = Date()
+    let points = (0..<7).map { offset in
+        ChartsView.BarPoint(
+            label: "D\(offset + 1)",
+            value: (offset % 5) + 1,
+            date: Calendar.current.date(byAdding: .day, value: -offset, to: now) ?? now
+        )
+    }
+
+    return BarCard(title: "This Week", points: points, range: .week)
+        .padding()
+}

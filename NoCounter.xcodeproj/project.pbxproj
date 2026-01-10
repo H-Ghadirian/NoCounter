@@ -10,15 +10,15 @@
 		2A0177162F3A89D400AB5069 /* IncrementNoCountIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0177152F3A89D400AB5069 /* IncrementNoCountIntent.swift */; };
 		2A0177172F3A89D400AB5069 /* IncrementNoCountIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0177152F3A89D400AB5069 /* IncrementNoCountIntent.swift */; };
 		2A0177182F3A89D400AB5069 /* IncrementNoCountIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0177152F3A89D400AB5069 /* IncrementNoCountIntent.swift */; };
-		3776F9F193984C2A969171A8 /* DecrementNoCountIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C29E681F8429BB5040706 /* DecrementNoCountIntent.swift */; };
-		9BCAE80AD97D4465940BAB2A /* DecrementNoCountIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C29E681F8429BB5040706 /* DecrementNoCountIntent.swift */; };
-		F09B82B5026241A1A5FBE5C9 /* DecrementNoCountIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C29E681F8429BB5040706 /* DecrementNoCountIntent.swift */; };
 		2A01771D2F3AA79C00AB5069 /* NoModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A01771C2F3AA79C00AB5069 /* NoModelContainer.swift */; };
 		2A01771E2F3AA79C00AB5069 /* NoEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A01771B2F3AA79C00AB5069 /* NoEvent.swift */; };
 		2A01771F2F3AA79C00AB5069 /* NoModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A01771C2F3AA79C00AB5069 /* NoModelContainer.swift */; };
 		2A0177202F3AA79C00AB5069 /* NoEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A01771B2F3AA79C00AB5069 /* NoEvent.swift */; };
 		2A0177212F3AA79C00AB5069 /* NoModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A01771C2F3AA79C00AB5069 /* NoModelContainer.swift */; };
 		2A0177222F3AA79C00AB5069 /* NoEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A01771B2F3AA79C00AB5069 /* NoEvent.swift */; };
+		2A0177542F3CD19800AB5069 /* NoPreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0177532F3CD19800AB5069 /* NoPreviewData.swift */; };
+		2A0177552F3CD19800AB5069 /* NoPreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0177532F3CD19800AB5069 /* NoPreviewData.swift */; };
+		2A0177562F3CD19800AB5069 /* NoPreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0177532F3CD19800AB5069 /* NoPreviewData.swift */; };
 		2A65456E2F28B2F8007F833F /* NoCounterWatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2A6545642F28B2F7007F833F /* NoCounterWatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2A6C7AD12F29EF1B00C70477 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6C7AD02F29EF1B00C70477 /* WidgetKit.framework */; };
 		2A6C7AD32F29EF1B00C70477 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6C7AD22F29EF1B00C70477 /* SwiftUI.framework */; };
@@ -29,6 +29,9 @@
 		2A942FCB2F2616FA009DFFC6 /* NoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A942FC82F2616F0009DFFC6 /* NoStore.swift */; };
 		2A942FCC2F261816009DFFC6 /* WCKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A942FB92F260A69009DFFC6 /* WCKeys.swift */; };
 		2A942FCD2F261816009DFFC6 /* WCKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A942FB92F260A69009DFFC6 /* WCKeys.swift */; };
+		3776F9F193984C2A969171A8 /* DecrementNoCountIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C29E681F8429BB5040706 /* DecrementNoCountIntent.swift */; };
+		9BCAE80AD97D4465940BAB2A /* DecrementNoCountIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C29E681F8429BB5040706 /* DecrementNoCountIntent.swift */; };
+		F09B82B5026241A1A5FBE5C9 /* DecrementNoCountIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89C29E681F8429BB5040706 /* DecrementNoCountIntent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +80,7 @@
 		2A0177152F3A89D400AB5069 /* IncrementNoCountIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementNoCountIntent.swift; sourceTree = "<group>"; };
 		2A01771B2F3AA79C00AB5069 /* NoEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoEvent.swift; sourceTree = "<group>"; };
 		2A01771C2F3AA79C00AB5069 /* NoModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoModelContainer.swift; sourceTree = "<group>"; };
-		D89C29E681F8429BB5040706 /* DecrementNoCountIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecrementNoCountIntent.swift; sourceTree = "<group>"; };
+		2A0177532F3CD19800AB5069 /* NoPreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPreviewData.swift; sourceTree = "<group>"; };
 		2A6545342F1FD038007F833F /* NoCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6545642F28B2F7007F833F /* NoCounterWatchApp Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NoCounterWatchApp Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6C7ACE2F29EF1B00C70477 /* widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +89,7 @@
 		2A6C7AE52F29EF1B00C70477 /* widgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widgetExtension.entitlements; sourceTree = "<group>"; };
 		2A942FB92F260A69009DFFC6 /* WCKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCKeys.swift; sourceTree = "<group>"; };
 		2A942FC82F2616F0009DFFC6 /* NoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoStore.swift; sourceTree = "<group>"; };
+		D89C29E681F8429BB5040706 /* DecrementNoCountIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecrementNoCountIntent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -101,6 +105,10 @@
 			membershipExceptions = (
 				Info.plist,
 			);
+			platformFiltersByRelativePath = {
+				NoHomeWidget.swift = (ios, );
+				NoLockWidget.swift = (ios, );
+			};
 			target = 2A6C7ACD2F29EF1B00C70477 /* widgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -191,6 +199,7 @@
 		2A942FC72F2616A3009DFFC6 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				2A0177532F3CD19800AB5069 /* NoPreviewData.swift */,
 				2A01771B2F3AA79C00AB5069 /* NoEvent.swift */,
 				2A01771C2F3AA79C00AB5069 /* NoModelContainer.swift */,
 				2A0177152F3A89D400AB5069 /* IncrementNoCountIntent.swift */,
@@ -346,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3776F9F193984C2A969171A8 /* DecrementNoCountIntent.swift in Sources */,
+				2A0177562F3CD19800AB5069 /* NoPreviewData.swift in Sources */,
 				2A0177182F3A89D400AB5069 /* IncrementNoCountIntent.swift in Sources */,
 				2A942FC92F2616FA009DFFC6 /* NoStore.swift in Sources */,
 				2A0177212F3AA79C00AB5069 /* NoModelContainer.swift in Sources */,
@@ -364,6 +374,7 @@
 				2A01771F2F3AA79C00AB5069 /* NoModelContainer.swift in Sources */,
 				2A0177202F3AA79C00AB5069 /* NoEvent.swift in Sources */,
 				2A942FCA2F2616FA009DFFC6 /* NoStore.swift in Sources */,
+				2A0177542F3CD19800AB5069 /* NoPreviewData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A0177552F3CD19800AB5069 /* NoPreviewData.swift in Sources */,
 				2A01771D2F3AA79C00AB5069 /* NoModelContainer.swift in Sources */,
 				2A01771E2F3AA79C00AB5069 /* NoEvent.swift in Sources */,
 				2A0177172F3A89D400AB5069 /* IncrementNoCountIntent.swift in Sources */,

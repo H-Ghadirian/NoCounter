@@ -80,3 +80,8 @@ struct CounterView: View {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 }
+
+#Preview {
+    CounterView()
+        .modelContainer(NoPreviewData.container(eventCount: 24))
+}

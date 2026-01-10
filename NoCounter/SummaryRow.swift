@@ -31,3 +31,20 @@ struct StatCard: View {
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 }
+
+#Preview("SummaryRow") {
+    SummaryRow(
+        summary: ChartsView.Summary(
+            total: 12,
+            avgPerDay: 1.7,
+            bestDay: 4,
+            allTime: 120
+        )
+    )
+    .padding()
+}
+
+#Preview("StatCard") {
+    StatCard(title: "All Time", value: "120")
+        .padding()
+}

@@ -38,8 +38,13 @@ struct RootView: View {
             PhoneWC.shared.syncAfterLocalChange()
         }
         .task {
+            guard !isPreview else { return }
             await updateICloudStatus()
         }
+    }
+
+    private var isPreview: Bool {
+        ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
     }
 
     @MainActor
@@ -66,3 +71,7 @@ struct RootView: View {
     }
 }
 
+#Preview {
+    RootView()
+        .modelContainer(NoPreviewData.container(eventCount: 18))
+}

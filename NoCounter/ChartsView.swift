@@ -235,3 +235,8 @@ struct ChartsView: View {
         }
     }
 }
+
+#Preview {
+    ChartsView()
+        .modelContainer(NoPreviewData.container(eventCount: 48))
+}

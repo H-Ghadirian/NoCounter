@@ -2,6 +2,11 @@ import WidgetKit
 import SwiftUI
 import AppIntents
 
+struct SimpleEntry: TimelineEntry {
+    let date: Date
+    let count: Int
+}
+
 struct NoHomeWidget: Widget {
     let kind: String = "NoHomeWidget"
 
@@ -58,3 +63,16 @@ struct NoHomeView: View {
         .padding()
     }
 }
+
+#Preview(
+    "NoHome Small",
+    as: .systemSmall,
+    widget: {
+        NoHomeWidget()
+    },
+    timeline: {
+        Entry(date: .now, count: 42)
+    }
+)
+
+

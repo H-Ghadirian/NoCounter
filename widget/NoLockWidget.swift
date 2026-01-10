@@ -38,3 +38,11 @@ struct NoAccessoryView: View {
         }
     }
 }
+
+#Preview(
+    "No Lock Rect",
+    as: .accessoryRectangular,
+    widget: { NoLockWidget() },
+    timeline: { Entry(date: .now, count: 12) }
+)
+
