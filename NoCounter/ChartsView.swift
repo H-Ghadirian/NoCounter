@@ -35,11 +35,6 @@ struct ChartsView: View {
                 BarCard(title: barTitle, points: barPoints(range: range, events: events))
                     .padding(.horizontal, 16)
 
-                if range == .year {
-                    HeatmapCard(title: "Year heatmap", cells: heatmapCells(events: events))
-                        .padding(.horizontal, 16)
-                }
-
                 Spacer(minLength: 24)
             }
             .padding(.bottom, 24)
