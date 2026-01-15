@@ -2,14 +2,6 @@ import Foundation
 import WatchConnectivity
 import SwiftData
 
-enum WCKeys {
-    static let addNo = "addNo"
-    static let undoNo = "undoNo"
-
-    static let requestState = "requestState"
-    static let allTimeCount = "allTimeCount"
-}
-
 final class PhoneWC: NSObject, WCSessionDelegate {
     static let shared = PhoneWC()
 
