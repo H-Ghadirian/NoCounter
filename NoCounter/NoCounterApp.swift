@@ -15,6 +15,6 @@ struct NoCounterApp: App {
         WindowGroup {
             RootView()
         }
-        .modelContainer(for: NoEvent.self)
+        .modelContainer(container)
     }
 }
