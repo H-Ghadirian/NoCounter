@@ -32,7 +32,7 @@ struct ChartsView: View {
                 SummaryRow(summary: summary)
                     .padding(.horizontal, 16)
 
-                BarCard(title: barTitle, points: barPoints(range: range, events: events))
+                BarCard(title: barTitle, points: barPoints(range: range, events: events), range: range)
                     .padding(.horizontal, 16)
 
                 Spacer(minLength: 24)
