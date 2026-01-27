@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct WatchCounterView: View {
-    @State private var count: Int = 0
+    @State private var count = NoStore.count()
 
     var body: some View {
         VStack(spacing: 10) {
@@ -10,7 +10,9 @@ struct WatchCounterView: View {
                 .monospacedDigit()
 
             Button {
+                print("Button sendAdd pressed")
                 WatchWC.shared.sendAdd { newCount in
+                    print("WatchWC.shared.sendAdd \(String(describing: newCount))")
                     if let newCount { DispatchQueue.main.async { count = newCount } }
                 }
             } label: {
@@ -22,7 +24,9 @@ struct WatchCounterView: View {
             .buttonStyle(.borderedProminent)
 
             Button {
+                print("Button sendUndo pressed")
                 WatchWC.shared.sendUndo { newCount in
+                    print("WatchWC.shared.sendUndo \(String(describing: newCount))")
                     if let newCount { DispatchQueue.main.async { count = newCount } }
                 }
             } label: {
@@ -34,7 +38,13 @@ struct WatchCounterView: View {
         .padding(.horizontal, 8)
         .onAppear {
             WatchWC.shared.requestState { newCount in
+                print("requestState \(String(describing: newCount))")
                 if let newCount { DispatchQueue.main.async { count = newCount } }
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .watchCountDidUpdate)) { n in
+            if let v = n.object as? Int {
+                DispatchQueue.main.async { count = v }
             }
         }
     }

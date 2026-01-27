@@ -7,17 +7,35 @@
 		<key>NoCounter.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<key>NoCounterWatchApp Watch App.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>widgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2A6545332F1FD038007F833F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A6545632F28B2F7007F833F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A6C7ACD2F29EF1B00C70477</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

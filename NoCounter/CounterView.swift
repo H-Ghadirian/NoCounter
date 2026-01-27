@@ -27,6 +27,7 @@ struct CounterView: View {
 
             Button {
                 modelContext.insert(NoEvent())
+                NoStore.increment()
                 UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             } label: {
                 HStack(spacing: 10) {
@@ -60,6 +61,7 @@ struct CounterView: View {
     private func undoLast() {
         guard let last = events.first else { return }
         modelContext.delete(last)
+        NoStore.decrement()
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 }

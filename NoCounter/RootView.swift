@@ -12,7 +12,9 @@ struct RootView: View {
                 .tabItem { Label("Charts", systemImage: "chart.bar.fill") }
         }
         .onAppear {
-            PhoneWC.shared.modelContext = modelContext
+            if PhoneWC.shared.modelContext == nil {
+                PhoneWC.shared.modelContext = modelContext
+            }
         }
     }
 }
