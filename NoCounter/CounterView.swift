@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct CounterView: View {
+    @Environment(\.colorScheme) private var colorScheme
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \NoEvent.timestamp, order: .reverse) private var events: [NoEvent]
 
@@ -32,13 +33,22 @@ struct CounterView: View {
             } label: {
                 HStack(spacing: 10) {
                     Image(systemName: "hand.raised.fill")
+                        .font(.system(size: 20, weight: .bold))
                     Text("NO")
+                        .font(.system(size: 20, weight: .bold))
                 }
-                .font(.system(size: 22, weight: .bold, design: .rounded))
-                .frame(maxWidth: .infinity)
-                .frame(height: 64)
+                .frame(maxWidth: .infinity, minHeight: 60)
+                .background {
+                    Capsule()
+                        .fill(colorScheme == .dark
+                              ? Color(uiColor: .secondarySystemBackground)
+                              : Color.black)
+                }
+                .overlay {
+                    Capsule()
+                        .stroke(Color.white.opacity(0.12), lineWidth: 3)
+                }
             }
-            .buttonStyle(.borderedProminent)
             .tint(.primary)
             .padding(.horizontal, 20)
 
@@ -47,7 +57,7 @@ struct CounterView: View {
             } label: {
                 Label("Undo", systemImage: "arrow.uturn.backward")
                     .frame(height: 44)
-                    .frame(maxWidth: 220)
+                    .frame(maxWidth: 180)
             }
             .buttonStyle(.bordered)
             .disabled(events.isEmpty)
