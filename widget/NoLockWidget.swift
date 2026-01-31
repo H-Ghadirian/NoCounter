@@ -33,5 +33,8 @@ struct NoAccessoryView: View {
                 .foregroundStyle(.white)
                 .font(.system(size: 20, weight: .bold))
         }
+        .containerBackground(for: .widget) {
+            Color.clear
+        }
     }
 }

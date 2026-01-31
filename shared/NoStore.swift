@@ -1,9 +1,15 @@
 import Foundation
 
 struct NoStore {
-    private static let suite = UserDefaults(
-        suiteName: "group.me.HamedGh.NoCounter"
-    )!
+    private static let suite: UserDefaults = {
+        if let suite = UserDefaults(suiteName: "group.me.HamedGh.NoCounter") {
+            return suite
+        }
+        #if DEBUG
+        print("NoStore: App Group not available, falling back to standard defaults.")
+        #endif
+        return .standard
+    }()
 
     private static let key = "no_count"
 
