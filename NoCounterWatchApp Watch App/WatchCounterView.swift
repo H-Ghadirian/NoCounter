@@ -3,6 +3,7 @@ import SwiftUI
 struct WatchCounterView: View {
     @State private var count = NoStore.count()
     @State private var lock: Bool = false
+    @State private var pollTask: Task<Void, Never>?
 
     var body: some View {
         VStack(spacing: 10) {
@@ -47,6 +48,7 @@ struct WatchCounterView: View {
         }
 //        .padding(.horizontal, 8)
         .onAppear {
+            startPolling()
 
             let t = CFAbsoluteTimeGetCurrent()
             print("View - onAppear called \(t)")
@@ -55,6 +57,9 @@ struct WatchCounterView: View {
                 print("View - requestState \(String(describing: newCount))")
                 if let newCount { DispatchQueue.main.async { count = newCount } }
             }
+        }
+        .onDisappear {
+            stopPolling()
         }
         .onReceive(
             NotificationCenter.default.publisher(for: .watchCountDidUpdate)
@@ -70,6 +75,25 @@ struct WatchCounterView: View {
                 }
             }
         }
+    }
+
+    private func startPolling() {
+        stopPolling()
+        pollTask = Task { @MainActor in
+            while !Task.isCancelled {
+                WatchWC.shared.requestState { newCount in
+                    if let newCount {
+                        DispatchQueue.main.async { count = newCount }
+                    }
+                }
+                try? await Task.sleep(nanoseconds: 2_000_000_000)
+            }
+        }
+    }
+
+    private func stopPolling() {
+        pollTask?.cancel()
+        pollTask = nil
     }
 }
 

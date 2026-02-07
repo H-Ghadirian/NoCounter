@@ -5,5 +5,6 @@ import SwiftUI
 struct widgetBundle: WidgetBundle {
     var body: some Widget {
         NoLockWidget()
+        NoLockControlWidget()
     }
 }

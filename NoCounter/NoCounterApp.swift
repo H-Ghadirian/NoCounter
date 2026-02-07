@@ -6,7 +6,7 @@ struct NoCounterApp: App {
     let container: ModelContainer
 
     init() {
-        container = try! ModelContainer(for: NoEvent.self)
+        container = NoModelContainer.makeContainer()
         _ = PhoneWC.shared
         PhoneWC.shared.modelContext = container.mainContext
     }
