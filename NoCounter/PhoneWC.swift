@@ -11,7 +11,7 @@ final class PhoneWC: NSObject, WCSessionDelegate {
         super.init()
         print("PhoneWC init")
         if WCSession.isSupported() {
-            print("WCSession.isSupported")
+            print("PhoneWC WCSession.isSupported")
             WCSession.default.delegate = self
             WCSession.default.activate()
         }

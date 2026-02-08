@@ -2,6 +2,7 @@ import SwiftUI
 
 struct WatchCounterView: View {
     @State private var count = NoStore.count()
+    @State private var lock: Bool = false
 
     var body: some View {
         VStack(spacing: 10) {
@@ -10,10 +11,17 @@ struct WatchCounterView: View {
                 .monospacedDigit()
 
             Button {
-                print("Button sendAdd pressed")
-                WatchWC.shared.sendAdd { newCount in
-                    print("WatchWC.shared.sendAdd \(String(describing: newCount))")
-                    if let newCount { DispatchQueue.main.async { count = newCount } }
+                let t = CFAbsoluteTimeGetCurrent()
+                print("View - Button sendAdd pressed at \(t)")
+                WKInterfaceDevice.current().play(.click)
+
+                lock = true
+                DispatchQueue.main.async { count += 1 }
+                DispatchQueue.global().async {
+                    WatchWC.shared.sendAdd { newCount in
+                        print("View - WatchWC.shared.sendAdd \(String(describing: newCount))")
+    //                    if let newCount { DispatchQueue.main.async { count = newCount } }
+                    }
                 }
             } label: {
                 Text("NO")
@@ -21,13 +29,15 @@ struct WatchCounterView: View {
                     .frame(maxWidth: .infinity)
                     .frame(height: 44)
             }
-            .buttonStyle(.borderedProminent)
 
             Button {
-                print("Button sendUndo pressed")
+                print("View - Button sendUndo pressed")
+                lock = true
+
+                count -= 1
                 WatchWC.shared.sendUndo { newCount in
-                    print("WatchWC.shared.sendUndo \(String(describing: newCount))")
-                    if let newCount { DispatchQueue.main.async { count = newCount } }
+                    print("View - WatchWC.shared.sendUndo \(String(describing: newCount))")
+//                    if let newCount { DispatchQueue.main.async { count = newCount } }
                 }
             } label: {
                 Text("Undo").frame(maxWidth: .infinity)
@@ -35,16 +45,29 @@ struct WatchCounterView: View {
             .buttonStyle(.bordered)
             .disabled(count == 0)
         }
-        .padding(.horizontal, 8)
+//        .padding(.horizontal, 8)
         .onAppear {
+
+            let t = CFAbsoluteTimeGetCurrent()
+            print("View - onAppear called \(t)")
+            WKInterfaceDevice.current().play(.click)
             WatchWC.shared.requestState { newCount in
-                print("requestState \(String(describing: newCount))")
+                print("View - requestState \(String(describing: newCount))")
                 if let newCount { DispatchQueue.main.async { count = newCount } }
             }
         }
-        .onReceive(NotificationCenter.default.publisher(for: .watchCountDidUpdate)) { n in
+        .onReceive(
+            NotificationCenter.default.publisher(for: .watchCountDidUpdate)
+        ) { n in
             if let v = n.object as? Int {
-                DispatchQueue.main.async { count = v }
+                print("View - onReceive watchCountDidUpdate")
+                DispatchQueue.main.async {
+                    if !lock {
+                        count = v
+                        print("View - onReceive count = v")
+                    }
+                    lock = false
+                }
             }
         }
     }

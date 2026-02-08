@@ -11,16 +11,18 @@ final class WatchWC: NSObject, WCSessionDelegate {
     private var cachedCount: Int {
         get { UserDefaults.standard.integer(forKey: cacheKey) }
         set {
-            UserDefaults.standard.set(newValue, forKey: cacheKey)
-            NotificationCenter.default.post(name: .watchCountDidUpdate, object: newValue)
+            UserDefaults.standard.set(newValue, forKey: self.cacheKey)
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: .watchCountDidUpdate, object: newValue)
+            }
         }
     }
 
     private override init() {
         super.init()
-        print("WatchWC init")
+        print("WatchWC - init")
         if WCSession.isSupported() {
-            print("WCSession isSupported")
+            print("WatchWC - WCSession isSupported")
             WCSession.default.delegate = self
             WCSession.default.activate()
         }
@@ -29,7 +31,7 @@ final class WatchWC: NSObject, WCSessionDelegate {
     func requestState(completion: @escaping (Int?) -> Void) {
         let session = WCSession.default
         guard session.activationState == .activated, session.isReachable else {
-            print("session is not Reachable or not activated")
+            print("WatchWC - session is not Reachable or not activated")
             completion(cachedCount)
             return
         }
@@ -54,23 +56,24 @@ final class WatchWC: NSObject, WCSessionDelegate {
     private func send(message: [String: Any], completion: ((Int?) -> Void)? = nil) {
         let session = WCSession.default
         guard session.activationState == .activated else {
-            print("activationState not .activated")
+            print("WatchWC - activationState not .activated")
             completion?(cachedCount)
             return
         }
 
         if session.isReachable {
             session.sendMessage(message, replyHandler: { reply in
-                print("replyHandler called with \(reply)")
+                print("WatchWC - replyHandler called with \(reply)")
                 let count = reply[WCKeys.allTimeCount] as? Int
                 if let count { self.cachedCount = count }
+                print("WatchWC - before completion")
                 completion?(self.cachedCount)
             }, errorHandler: { _ in
-                print("errorHandler called")
+                print("WatchWC - errorHandler called")
                 completion?(self.cachedCount)
             })
         } else {
-            print("session is not Reachable")
+            print("WatchWC - session is not Reachable")
             session.transferUserInfo(message)
             completion?(self.cachedCount)
         }
@@ -82,7 +85,7 @@ final class WatchWC: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         DispatchQueue.main.async {
             if let count = applicationContext[WCKeys.allTimeCount] as? Int {
-                print("WatchWC didReceiveApplicationContext")
+                print("WatchWC - didReceiveApplicationContext")
                 self.cachedCount = count
             }
         }
@@ -92,7 +95,7 @@ final class WatchWC: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
         DispatchQueue.main.async {
             if let count = userInfo[WCKeys.allTimeCount] as? Int {
-                print("WatchWC didReceiveUserInfo")
+                print("WatchWC - didReceiveUserInfo")
                 self.cachedCount = count
             }
         }
